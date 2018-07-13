@@ -36,46 +36,32 @@ module.exports = appInfo => {
         }
     };
 
-    // config.kafka = {
-    //     host : 'localhost:2181',
-    //     sub : [
-    //         {
-    //             groupId : 'consumer-topic'+ new Date().valueOf(),
-    //             topics: [
-    //                 'topic1'
-    //             ],
-    //             'topic1-KEYS': [
-    //                 'key1'
-    //             ]
-    //         }
-    //     ],
-    //     pub : {
-    //         topics : [
-    //             'topic1'
-    //         ],
-    //         requireAcks: 1,
-    //         ackTimeoutMs: 1000,
-    //         partitionerType: 2,
-    //         partition: 0,
-    //         attributes: 0
-    //     },
-    //     env : 'dev',
-    //     avroSchema: {
-    //         namespace: 'com.ecarx.protocol.model',
-    //         type: 'record',
-    //         name: 'S2sMessage',
-    //         fields: [
-    //             { name: 'env', type: 'string', doc: "环境变量,如:'development', 'testing', 'staging', 'production'" },
-    //             { name: 'requestId', type: 'string', doc: '请求唯一标识' },
-    //             { name: 'sysCode', type: 'string', doc: '发送方系统代码' },
-    //             { name: 'requestType', type: 'string', doc: '请求操作类型' },
-    //             { name: 'requestFlag', type: 'string', doc: '消息类型，0：请求，1：回复，2：ack' },
-    //             { name: 'timestamp', type: 'string', doc: '请求操作时间' },
-    //             { name: 'param', type: [{ type: 'map', values: 'string' }, 'null' ], doc: '系统级别扩展参数' },
-    //             { name: 'payload', type: 'bytes', doc: '业务数据' },
-    //         ],
-    //     }
-    // };
+    config.kafkajs = {
+        host : 'localhost:9092',
+        sub : [
+            {
+                groupId : 'consumer-topic'+ new Date().valueOf(),
+                topics: [
+                    'topic_01'
+                ],
+                'topic_01-KEYS': [
+                    'GET_TICKETS'
+                ]
+            }
+        ],
+        pub : {
+            topics : [
+                'topic_01'
+            ],
+            requireAcks: 1,
+            ackTimeoutMs: 1000,
+            partitionerType: 2,
+            partition: 0,
+            attributes: 0
+        },
+        env : 'dev',
+        avroSchema: {}
+    };
 
     return config;
 };

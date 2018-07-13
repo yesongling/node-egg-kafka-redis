@@ -8,17 +8,17 @@ exports.sequelize = {
     package: 'egg-sequelize',
 };
 
-// exports.redis = {
-//     enable: true,
-//     package: 'egg-redis',
-// };
+exports.redis = {
+    enable: true,
+    package: 'egg-redis',
+};
 
 exports.nunjucks = {
     enable: true,
     package: 'egg-view-nunjucks'
 };
 
-exports.kafka = {
+exports.kafkajs = {
     enable: true,
-    package: 'kafka-node'
+    package: 'egg-kafkajs'
 };
